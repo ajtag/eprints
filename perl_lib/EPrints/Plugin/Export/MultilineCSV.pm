@@ -33,6 +33,8 @@ sub initialise_fh
 	my ($self, $fh) = @_;
 
 	binmode( $fh, ":utf8" );
+	
+	print $fh "\xef\xbb\xbf";  # write the UTF-8 BOM as the first 3 bytes of the file to identify the encoding of the content
 }
 
 sub output_list
